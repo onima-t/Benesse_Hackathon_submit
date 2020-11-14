@@ -14,14 +14,16 @@ class _NextPageState extends State<NextPage> {
       decoration: BoxDecoration(
           shape: BoxShape.circle,
           image: DecorationImage(
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
             image: AssetImage('$asset_name'),
           ),
-          border: Border.all(width: 20, color: Colors.indigo)));
+          // border: Border.all(width: 20, color: Colors.indigo)
+      )
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigo[500],
+      backgroundColor: Colors.teal[50],
       appBar: AppBar(
           title: Text('プロフィール'),
           backgroundColor: Colors.lightBlue,
@@ -29,8 +31,10 @@ class _NextPageState extends State<NextPage> {
             RaisedButton(
               child: Text(
                 '参加',
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
               ),
               color: Colors.lightBlue,
               onPressed: () {
@@ -48,7 +52,24 @@ class _NextPageState extends State<NextPage> {
             SizedBox(
               height: 300.0,
               child: ListView(scrollDirection: Axis.horizontal, children: [
-                make_icons('images/human1.png'),
+                Container(
+                    width: 100.0,
+                    height: 200.0,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(width: 20, color: Colors.teal[50]))),
+                Container(
+                    width: 200.0,
+                    height: 200.0,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('images/human1.png'),
+                      ),
+                      // border: Border.all(width: 20, color: Colors.indigo)
+                    )
+                ),
                 make_icons('images/dog.png'),
                 make_icons('images/cat.png'),
                 make_icons('images/clown-fish.png'),

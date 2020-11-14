@@ -11,10 +11,10 @@ class _TimelinePageState extends State<TimelinePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('mi card'),
-      // ),
-      backgroundColor: Colors.indigo[500],
+      appBar: AppBar(
+        title: Text('Room#51'),
+      ),
+      backgroundColor: Colors.teal[50],
       body: Center(
         child: RaisedButton(
           child: Text('Timelinepage'),
