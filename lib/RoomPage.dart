@@ -12,8 +12,7 @@ class _RoomPageState extends State<RoomPage> {
   int _selectedIndex = 0;
 
   static List<Widget> _pageList = [
-    RoomTab(
-    ),
+    RoomTab(),
     TimelineTab(),
   ];
 
@@ -29,18 +28,24 @@ class _RoomPageState extends State<RoomPage> {
       appBar: AppBar(
         title: Text('Room#51'),
         backgroundColor: ABColor,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.share),
+            onPressed: () {},
+          )
+        ],
       ),
       backgroundColor: BGColor,
       body: _pageList[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
+            icon: Icon(Icons.flash_on),
+            title: Text('just now'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            title: Text('Setting'),
+            icon: Icon(Icons.restore),
+            title: Text('History'),
           ),
         ],
         currentIndex: _selectedIndex,
