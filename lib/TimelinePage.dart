@@ -13,6 +13,7 @@ class _TimelinePageState extends State<TimelinePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Room#51'),
+        backgroundColor: Colors.teal[600],
       ),
       backgroundColor: Colors.teal[50],
       body: Center(

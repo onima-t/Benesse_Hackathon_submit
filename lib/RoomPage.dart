@@ -7,9 +7,7 @@ class RoomPage extends StatefulWidget {
 }
 
 class _RoomPageState extends State<RoomPage> {
-
-  int _selectedIndex=0;
-
+  int _selectedIndex = 0;
 
   static List<Widget> _pageList = [
     CustomPage(pannelColor: Colors.cyan, title: 'Home'),
@@ -25,24 +23,40 @@ class _RoomPageState extends State<RoomPage> {
 
   @override
   Widget build(BuildContext context) {
+    Column make_column({String image_name, String user_name}) => Column(
+      children: [
+        Container(
+          width: 200.0,
+          height: 200.0,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.contain,
+              image: AssetImage(image_name),
+            ),
+          ),
+        ),
+        Text(user_name)
+      ],
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text('Room#51'),
+        backgroundColor: Colors.teal[600],
       ),
       backgroundColor: Colors.teal[50],
-      body: Center(
-        child: RaisedButton(
-          child: Text('Roompage'),
-          onPressed: (){
-            print('jisyuu!');
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => TimelinePage()
-              ),
-            );
-          },
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            children: [
+              make_column(image_name: 'images/twitter.png',user_name: 'Aさん'),
+              make_column(image_name: 'images/monst.png',user_name: 'Bさん'),
+            ],
+          ),
+          Column(
+            children: [],
+          )
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -65,7 +79,6 @@ class _RoomPageState extends State<RoomPage> {
     );
   }
 }
-
 
 class CustomPage extends StatelessWidget {
   final Color pannelColor;

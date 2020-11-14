@@ -26,7 +26,7 @@ class _NextPageState extends State<NextPage> {
       backgroundColor: Colors.teal[50],
       appBar: AppBar(
           title: Text('プロフィール'),
-          backgroundColor: Colors.lightBlue,
+          backgroundColor: Colors.teal[600],
           actions: <Widget>[
             RaisedButton(
               child: Text(
@@ -36,7 +36,7 @@ class _NextPageState extends State<NextPage> {
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              color: Colors.lightBlue,
+              color: Colors.teal[600],
               onPressed: () {
                 Navigator.push(
                   context,
