@@ -7,21 +7,10 @@ class TimelineTab extends StatefulWidget {
 }
 
 class _TimelineTabState extends State<TimelineTab> {
-  Container make_icons(String asset_name) => Container(
-      width: 200.0,
-      height: 200.0,
-      decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage('$asset_name'),
-          ),
-          border: Border.all(width: 20,color: Colors.indigo)
-      )
-  );
   Container make_post({String icon_name,String user_name,String time, String app_name})=> Container(
 
     decoration: new BoxDecoration(
+      borderRadius: BorderRadius.circular(10),
       color: Colors.white,
       shape: BoxShape.rectangle,
     ),
@@ -62,31 +51,35 @@ class _TimelineTabState extends State<TimelineTab> {
           height: 200,
             width: 200,
             child: Image.asset(app_name)),
-        SizedBox(
-          height: 20,
-          child: Container(
-            color: BGColor,
-          ),
-        )
+
       ],
     ),
   );
   @override
   Widget build(BuildContext context) {
+    var list = [make_post(icon_name: 'images/dog.png',user_name: 'Aさん', time: '17:53', app_name: 'images/twitter.png'),
+      make_post(icon_name: 'images/cat.png',user_name: 'Bさん', time: '17:53', app_name: 'images/monst.png'),
+      make_post(icon_name: 'images/clown-fish.png',user_name: 'Cさん', time: '17:53', app_name: 'images/chrome.png'),
+      make_post(icon_name: 'images/cat.png',user_name: 'Bさん', time: '17:53', app_name: 'images/sinken.png'),];
     return  Center(
       child: Column(
         children:[
 
           SizedBox(
             height: 680.0,
-            child: ListView(
+            child: ListView.separated(
               padding: EdgeInsets.all(50),
-                scrollDirection: Axis.vertical, children: [
-              make_post(icon_name: 'images/dog.png',user_name: 'Aさん', time: '17:53', app_name: 'images/twitter.png'),
-              make_post(icon_name: 'images/cat.png',user_name: 'Bさん', time: '17:53', app_name: 'images/monst.png'),
-              make_post(icon_name: 'images/clown-fish.png',user_name: 'Cさん', time: '17:53', app_name: 'images/chrome.png'),
-              make_post(icon_name: 'images/cat.png',user_name: 'Bさん', time: '17:53', app_name: 'images/sinken.png'),
-            ]),
+              scrollDirection: Axis.vertical,
+              itemBuilder: (BuildContext context, int index){
+                return list[index];
+              },
+              separatorBuilder: (BuildContext context, int index){
+                return Container(
+                height: 20,
+                color: BGColor,);
+              },
+              itemCount: list.length,
+            ),
           ),
 
         ],
