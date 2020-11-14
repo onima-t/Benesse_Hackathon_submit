@@ -1,15 +1,26 @@
 import 'package:flutter/material.dart';
-import 'TimelinePage.dart';
 
-class RoomPage extends StatefulWidget {
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  static const String _title = 'Flutter Code Sample';
+
   @override
-  _RoomPageState createState() => _RoomPageState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: _title,
+      home: HomePage(),
+    );
+  }
 }
 
-class _RoomPageState extends State<RoomPage> {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
 
-  int _selectedIndex=0;
-
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
 
   static List<Widget> _pageList = [
     CustomPage(pannelColor: Colors.cyan, title: 'Home'),
@@ -26,24 +37,10 @@ class _RoomPageState extends State<RoomPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('mi card'),
-      // ),
-      backgroundColor: Colors.indigo[500],
-      body: Center(
-        child: RaisedButton(
-          child: Text('Roompage'),
-          onPressed: (){
-            print('jisyuu!');
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => TimelinePage()
-              ),
-            );
-          },
-        ),
+      appBar: AppBar(
+        title: const Text('サンプル1'),
       ),
+      body: _pageList[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -65,7 +62,6 @@ class _RoomPageState extends State<RoomPage> {
     );
   }
 }
-
 
 class CustomPage extends StatelessWidget {
   final Color pannelColor;

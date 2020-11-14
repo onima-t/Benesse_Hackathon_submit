@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'HomePage.dart';
+import 'RoomPage.dart';
 
 class NextPage extends StatefulWidget {
   @override
@@ -33,7 +33,7 @@ class _NextPageState extends State<NextPage> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
+              MaterialPageRoute(builder: (context) => RoomPage()),
             );
           },
         )
