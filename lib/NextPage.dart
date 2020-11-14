@@ -14,7 +14,7 @@ class _NextPageState extends State<NextPage> {
       decoration: BoxDecoration(
           shape: BoxShape.circle,
           image: DecorationImage(
-            fit: BoxFit.cover,
+            fit: BoxFit.scaleDown,
             image: AssetImage('$asset_name'),
           ),
           border: Border.all(width: 20,color: BGColor)
@@ -52,10 +52,29 @@ class _NextPageState extends State<NextPage> {
             SizedBox(
               height: 300.0,
               child: ListView(scrollDirection: Axis.horizontal, children: [
-                make_icons('images/human1.png'),
+                Container(
+                    width: 100.0,
+                    height: 200.0,
+                ),
+                Container(
+                    width: 200.0,
+                    height: 200.0,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage('images/human1.png'),
+                        ),
+                        border: Border.all(width: 20,color: BGColor)
+                    )
+                ),
                 make_icons('images/dog.png'),
                 make_icons('images/cat.png'),
                 make_icons('images/clown-fish.png'),
+                Container(
+                  width: 100.0,
+                  height: 200.0,
+                ),
               ]),
             ),
             SizedBox(

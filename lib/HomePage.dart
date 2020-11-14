@@ -48,7 +48,7 @@ class _ChangeFormState extends State<ChangeForm> {
               // 入力数
               maxLength: 15,
               maxLengthEnforced: false,
-              style: TextStyle(color: Colors.blueAccent,
+              style: TextStyle(color: ABColor,
                   fontSize: 40.0,
                   fontWeight: FontWeight.w500
               ),
