@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'HomePage.dart';
 import 'RoomPage.dart';
+import 'color.dart';
 
 class NextPage extends StatefulWidget {
   @override
@@ -14,37 +14,33 @@ class _NextPageState extends State<NextPage> {
       decoration: BoxDecoration(
           shape: BoxShape.circle,
           image: DecorationImage(
-            fit: BoxFit.contain,
+            fit: BoxFit.cover,
             image: AssetImage('$asset_name'),
           ),
-          // border: Border.all(width: 20, color: Colors.indigo)
+          border: Border.all(width: 20,color: Colors.indigo)
       )
   );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal[50],
-      appBar: AppBar(
-          title: Text('プロフィール'),
-          backgroundColor: Colors.lightBlue,
+      backgroundColor: BGColor,
+      appBar: AppBar(title: Text('プロフィール'),
+          backgroundColor: BGColor,
           actions: <Widget>[
-            RaisedButton(
-              child: Text(
-                '参加',
-                style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-              color: Colors.lightBlue,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => RoomPage()),
-                );
-              },
-            )
-          ]),
+        RaisedButton(
+          child: Text(
+            '参加',
+            style: TextStyle(color: Colors.white),
+          ),
+          color: Colors.lightBlue,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => RoomPage()),
+            );
+          },
+        )
+      ]),
       body: Center(
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
@@ -52,24 +48,7 @@ class _NextPageState extends State<NextPage> {
             SizedBox(
               height: 300.0,
               child: ListView(scrollDirection: Axis.horizontal, children: [
-                Container(
-                    width: 100.0,
-                    height: 200.0,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(width: 20, color: Colors.teal[50]))),
-                Container(
-                    width: 200.0,
-                    height: 200.0,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage('images/human1.png'),
-                      ),
-                      // border: Border.all(width: 20, color: Colors.indigo)
-                    )
-                ),
+                make_icons('images/human1.png'),
                 make_icons('images/dog.png'),
                 make_icons('images/cat.png'),
                 make_icons('images/clown-fish.png'),
@@ -87,8 +66,7 @@ class _NextPageState extends State<NextPage> {
                 maxLines: 1,
                 decoration: const InputDecoration(
                     hintText: 'ニックネームを入力',
-                    hintStyle: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold)),
+                    hintStyle: TextStyle(color: Colors.white)),
               ),
             ),
             Padding(
