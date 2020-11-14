@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'HomePage.dart';
+import 'RoomPage.dart';
 
 class NextPage extends StatefulWidget {
   @override
@@ -16,28 +17,30 @@ class _NextPageState extends State<NextPage> {
             fit: BoxFit.cover,
             image: AssetImage('$asset_name'),
           ),
-          border: Border.all(width: 20,color: Colors.indigo)
-      )
-  );
+          border: Border.all(width: 20, color: Colors.indigo)));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.indigo[500],
-      appBar: AppBar(title: Text('プロフィール'), actions: <Widget>[
-        RaisedButton(
-          child: Text(
-            '参加',
-            style: TextStyle(color: Colors.white),
-          ),
-          color: Colors.lightBlue,
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()),
-            );
-          },
-        )
-      ]),
+      appBar: AppBar(
+          title: Text('プロフィール'),
+          backgroundColor: Colors.lightBlue,
+          actions: <Widget>[
+            RaisedButton(
+              child: Text(
+                '参加',
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              ),
+              color: Colors.lightBlue,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RoomPage()),
+                );
+              },
+            )
+          ]),
       body: Center(
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
@@ -63,7 +66,8 @@ class _NextPageState extends State<NextPage> {
                 maxLines: 1,
                 decoration: const InputDecoration(
                     hintText: 'ニックネームを入力',
-                    hintStyle: TextStyle(color: Colors.white)),
+                    hintStyle: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold)),
               ),
             ),
             Padding(
