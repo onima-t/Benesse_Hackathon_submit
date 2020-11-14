@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'TimelinePage.dart';
+import 'Roomtab.dart';
+import 'Timelinetab.dart';
+import 'color.dart';
 
 class RoomPage extends StatefulWidget {
   @override
@@ -10,9 +12,8 @@ class _RoomPageState extends State<RoomPage> {
   int _selectedIndex = 0;
 
   static List<Widget> _pageList = [
-    CustomPage(pannelColor: Colors.cyan, title: 'Home'),
-    CustomPage(pannelColor: Colors.green, title: 'Settings'),
-    CustomPage(pannelColor: Colors.pink, title: 'Search')
+    RoomTab(),
+    TimelineTab(),
   ];
 
   void _onItemTapped(int index) {
@@ -41,9 +42,9 @@ class _RoomPageState extends State<RoomPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Room#51'),
-        backgroundColor: Colors.teal[600],
+        backgroundColor: ABColor,
       ),
-      backgroundColor: Colors.teal[50],
+      backgroundColor: BGColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -67,10 +68,6 @@ class _RoomPageState extends State<RoomPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             title: Text('Setting'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            title: Text('Search'),
           ),
         ],
         currentIndex: _selectedIndex,
@@ -111,3 +108,53 @@ class CustomPage extends StatelessWidget {
     );
   }
 }
+
+class RoomTab extends StatefulWidget {
+  @override
+  _RoomTabState createState() => _RoomTabState();
+}
+
+class _RoomTabState extends State<RoomTab> {
+  Container make_icons(String asset_name) => Container(
+      width: 200.0,
+      height: 200.0,
+      decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage('$asset_name'),
+          ),
+          border: Border.all(width: 20,color: Colors.indigo)
+      )
+  );
+  @override
+  Widget build(BuildContext context) {
+    return  Center(
+      child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: 300.0,
+            child: ListView(scrollDirection: Axis.horizontal, children: [
+              make_icons('images/human1.png'),
+              make_icons('images/dog.png'),
+              make_icons('images/cat.png'),
+              make_icons('images/clown-fish.png'),
+            ]),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              'ルーム',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+

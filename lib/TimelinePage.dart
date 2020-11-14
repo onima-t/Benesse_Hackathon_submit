@@ -1,3 +1,4 @@
+import 'package:benesse/color.dart';
 import 'package:flutter/material.dart';
 import 'RoomPage.dart';
 
@@ -13,9 +14,9 @@ class _TimelinePageState extends State<TimelinePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Room#51'),
-        backgroundColor: Colors.teal[600],
+        backgroundColor: ABColor,
       ),
-      backgroundColor: Colors.teal[50],
+      backgroundColor: BGColor,
       body: Center(
         child: RaisedButton(
           child: Text('Timelinepage'),
