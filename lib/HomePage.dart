@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'NextPage.dart';
 import 'color.dart';
 
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -62,7 +63,7 @@ class _ChangeFormState extends State<ChangeForm> {
                       color: Colors.white,),
                     ),
                   ),
-                  title: new TextField(
+                  title: new TextFormField(
                     enabled: true,
                     // 入力数
                     maxLengthEnforced: false,

@@ -12,12 +12,13 @@ class _NextPageState extends State<NextPage> {
       width: 200.0,
       height: 200.0,
       decoration: BoxDecoration(
+          color: Colors.teal[100],
           shape: BoxShape.circle,
           image: DecorationImage(
             fit: BoxFit.scaleDown,
             image: AssetImage('$asset_name'),
           ),
-          border: Border.all(width: 20,color: BGColor)
+          border: Border.all(width: 20, color: BGColor)
       )
   );
   @override
@@ -53,20 +54,39 @@ class _NextPageState extends State<NextPage> {
               height: 300.0,
               child: ListView(scrollDirection: Axis.horizontal, children: [
                 Container(
-                    width: 100.0,
-                    height: 200.0,
+                  width: 110.0,
+                  height: 200.0,
                 ),
-                Container(
+                Center(
+                  child: Container(
                     width: 200.0,
                     height: 200.0,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage('images/human1.png'),
+                    child: Stack(
+                        alignment: Alignment.bottomRight,
+                        children: [
+                      Container(
+                        width: 200,
+                        height: 200,
+                        child: Icon(
+                          Icons.account_circle,
+                          size: 200,
+                          color: Colors.teal[100],
                         ),
-                        border: Border.all(width: 20,color: BGColor)
-                    )
+                      ),
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: const ShapeDecoration(
+                          shape: CircleBorder(),
+                          color: Colors.white,
+                        ),
+                        child: Icon(
+                          Icons.photo_camera,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ]),
+                  ),
                 ),
                 make_icons('images/dog.png'),
                 make_icons('images/cat.png'),
