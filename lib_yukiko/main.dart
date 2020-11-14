@@ -1,32 +1,22 @@
 import 'package:flutter/material.dart';
-import 'NextPage.dart';
+import 'package:flutter/services.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
+void main() {
+  runApp(MyApp());
 }
 
-class _HomePageState extends State<HomePage> {
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('mi card'),
-      // ),
-      backgroundColor: Colors.indigo[500],
-      body: Center(
-        child: RaisedButton(
-          child: Text('自習室へいく！'),
-          onPressed: (){
-            print('jisyuu!');
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => NextPage()
-              ),
-            );
-          },
+    // final size = MediaQuery.of(context).size;
+    // final padding = MediaQuery.of(context).padding;
+    // var maxHeight = size.height - padding.top - padding.bottom;
+    return MaterialApp(
+      title: 'Form',
+      home: Scaffold(
+        backgroundColor: Colors.indigo[500],
+        body: Center(
+          child: ChangeForm(),
         ),
       ),
     );
