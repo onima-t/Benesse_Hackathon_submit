@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'NextPage.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,27 +12,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('mi card'),
-      // ),
       backgroundColor: Colors.indigo[500],
       body: Center(
-        child: RaisedButton(
-          child: Text('自習室へいく！'),
-          onPressed: (){
-            print('jisyuu!');
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => NextPage()
-              ),
-            );
-          },
-        ),
+        child: ChangeForm(),
       ),
     );
   }
 }
+
+
 
 class ChangeForm extends StatefulWidget {
   @override
@@ -53,9 +42,6 @@ class _ChangeFormState extends State<ChangeForm> {
         padding: const EdgeInsets.all(50.0),
         child: Column(
           children: <Widget>[
-            SizedBox(
-              height: 100.0,
-            ),
             new TextField(
               enabled: true,
               // 入力数
@@ -80,7 +66,15 @@ class _ChangeFormState extends State<ChangeForm> {
             RaisedButton(
               child: const Text('入室する'),
               color: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                print('jisyuu!');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => NextPage()
+                  ),
+                );
+              },
               highlightElevation: 16,
               highlightColor: Colors.blue,
               onHighlightChanged: (value) {},
