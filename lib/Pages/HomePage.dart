@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'NextPage.dart';
-import 'color.dart';
-
+import '../color.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -60,7 +59,7 @@ class _ChangeFormState extends State<ChangeForm> {
                         );
                       },
                       icon: Icon(Icons.login,
-                      color: Colors.white,),
+                        color: Colors.white,),
                     ),
                   ),
                   title: new TextFormField(
@@ -99,7 +98,7 @@ class _ChangeFormState extends State<ChangeForm> {
                         ,),
                     ),
                     SizedBox(
-                      height:40
+                        height:40
                     ),
                     Text('Create New Room')
                   ],

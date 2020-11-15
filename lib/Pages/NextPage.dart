@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'RoomPage.dart';
-import 'color.dart';
+import '../color.dart';
 
 class NextPage extends StatefulWidget {
   @override
@@ -64,28 +64,28 @@ class _NextPageState extends State<NextPage> {
                     child: Stack(
                         alignment: Alignment.bottomRight,
                         children: [
-                      Container(
-                        width: 200,
-                        height: 200,
-                        child: Icon(
-                          Icons.account_circle,
-                          size: 200,
-                          color: Colors.teal[100],
-                        ),
-                      ),
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: const ShapeDecoration(
-                          shape: CircleBorder(),
-                          color: Colors.white,
-                        ),
-                        child: Icon(
-                          Icons.photo_camera,
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ]),
+                          Container(
+                            width: 200,
+                            height: 200,
+                            child: Icon(
+                              Icons.account_circle,
+                              size: 200,
+                              color: Colors.teal[100],
+                            ),
+                          ),
+                          Container(
+                            width: 50,
+                            height: 50,
+                            decoration: const ShapeDecoration(
+                              shape: CircleBorder(),
+                              color: Colors.white,
+                            ),
+                            child: Icon(
+                              Icons.photo_camera,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ]),
                   ),
                 ),
                 make_icons('images/dog.png'),

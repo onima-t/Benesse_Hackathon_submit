@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 import 'Roomtab.dart';
 import 'Timelinetab.dart';
-import 'color.dart';
+import '../color.dart';
 
 class RoomPage extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class _RoomPageState extends State<RoomPage> {
   int _selectedIndex = 0;
 
   static List<Widget> _pageList = [
-    RoomTab(),
+    RoomTab(U: UList),
     TimelineTab(),
   ];
 
@@ -26,15 +27,13 @@ class _RoomPageState extends State<RoomPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Room#51'),
-        backgroundColor: ABColor,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.share),
-            onPressed: () {},
-          )
-        ],
-      ),
+          title: Text('Room#51'),
+          backgroundColor: ABColor,
+          actions: <Widget>[
+        IconButton(icon: Icon(Icons.share) , onPressed: (){
+          Share.share("#51");},
+        )
+      ]),
       backgroundColor: BGColor,
       body: _pageList[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(

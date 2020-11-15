@@ -1,5 +1,5 @@
-import 'package:benesse/color.dart';
 import 'package:flutter/material.dart';
+import '../color.dart';
 
 class TimelineTab extends StatefulWidget {
   @override
@@ -32,23 +32,23 @@ class _TimelineTabState extends State<TimelineTab> {
                 ),
               ),
               Text(user_name,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20
-              ),),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20
+                ),),
               Text(time,
-              style: TextStyle(
-                color: Colors.grey
-              ),)
+                style: TextStyle(
+                    color: Colors.grey
+                ),)
             ],
           ),
         ),
         Divider(
           thickness: 1,
-            color: Colors.grey,
+          color: Colors.grey,
         ),
         Container(
-          height: 200,
+            height: 200,
             width: 200,
             child: Image.asset(app_name)),
 
@@ -75,8 +75,8 @@ class _TimelineTabState extends State<TimelineTab> {
               },
               separatorBuilder: (BuildContext context, int index){
                 return Container(
-                height: 20,
-                color: BGColor,);
+                  height: 20,
+                  color: BGColor,);
               },
               itemCount: list.length,
             ),
