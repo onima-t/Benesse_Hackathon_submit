@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'NextPage.dart';
-import '../color.dart';
+import '../settings.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -26,16 +25,9 @@ class ChangeForm extends StatefulWidget {
 }
 
 class _ChangeFormState extends State<ChangeForm> {
-  String _text = '';
-
-  void _handleText(String e) {
-    setState(() {
-      _text = e;
-    });
-  }
-
   Widget build(BuildContext context) {
     return SafeArea(
+      // ルーム番号入力Container
       child: Container(
           padding: const EdgeInsets.all(30.0),
           child: Column(
@@ -46,6 +38,27 @@ class _ChangeFormState extends State<ChangeForm> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: ListTile(
+                  // ルーム番号入力テキストフィールド
+                  title: new TextField(
+                    enabled: true,
+                    maxLengthEnforced: false,
+                    style: TextStyle(
+                        color: ABColor,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w500),
+                    obscureText: false,
+                    maxLines: 1,
+
+                    // focus時の動作
+                    decoration: const InputDecoration(
+                        hintText: '番号を入力',
+                        hintStyle: TextStyle(fontSize: 20, color: Colors.teal),
+                        labelText: 'ルームへ入室',
+                        labelStyle:
+                        TextStyle(fontSize: 20, color: Colors.teal)),
+                  ),
+
+                  //　ログインボタン「./NextPage.dart」へ移動
                   trailing: Ink(
                     decoration: const ShapeDecoration(
                       color: Colors.teal,
@@ -58,83 +71,81 @@ class _ChangeFormState extends State<ChangeForm> {
                           MaterialPageRoute(builder: (context) => NextPage()),
                         );
                       },
-                      icon: Icon(Icons.login,
-                        color: Colors.white,),
+                      icon: Icon(
+                        Icons.login,
+                        color: BGColor,
+                      ),
                     ),
-                  ),
-                  title: new TextFormField(
-                    enabled: true,
-                    // 入力数
-                    maxLengthEnforced: false,
-                    style: TextStyle(
-                        color: ABColor,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w500),
-                    obscureText: false,
-                    maxLines: 1,
-                    inputFormatters: <TextInputFormatter>[
-                      WhitelistingTextInputFormatter.digitsOnly,
-                    ],
-                    decoration: const InputDecoration(
-                        hintText: '番号を入力',
-                        hintStyle: TextStyle(fontSize: 20),
-                        labelText: 'ルームへ入室',
-                        labelStyle: TextStyle(fontSize: 20)),
                   ),
                 ),
               ),
-              Center(
-                child: Column(
-                  children: [
-                    IconButton(
+
+              // 「Create New Room」ボタン「./NextPage.dart」へ移動
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  // 追加アイコンボタン
+                  SizedBox(
+                    height: 100,
+                    width: 100,
+                    child: IconButton(
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => NextPage()),
                         );
                       },
-                      icon: Icon(Icons.add_circle,
-                        color: ABColor,size: 70
-                        ,),
+                      icon: Icon(
+                        Icons.add_circle,
+                        color: ABColor,
+                        size: 70,
+                      ),
                     ),
-                    SizedBox(
-                        height:40
+                  ),
+                  // text[Create New Room]
+                  Text(
+                    'Create New Room',
+                    style: TextStyle(
+                      color: ABColor,
+                      fontWeight: FontWeight.bold,
                     ),
-                    Text('Create New Room')
-                  ],
-                ),
+                  )
+                ],
               ),
+              SizedBox(
+                height: 30.0,
+              ),
+              // ランダムルーム入室ボタン「./NextPage.dart」へ移動
               RaisedButton(
-                child: const Text('入室する'),
-                color: Colors.white,
+                child: const Text('ランダムルームに\n入室する',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    )),
+                color: Colors.brown,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 onPressed: () {
-                  print('jisyuu!');
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => NextPage()),
                   );
                 },
-                highlightElevation: 16,
-                highlightColor: Colors.blue,
-                onHighlightChanged: (value) {},
               ),
-              SizedBox(
-                height: 80.0,
-              ),
-              Text('自動的に相手を選んで勉強するモードです'),
               SizedBox(
                 height: 10.0,
               ),
-              RaisedButton(
-                child: const Text('ランダムルーム\n入室する'),
-                color: Colors.pink[300],
-                onPressed: () {},
-                highlightElevation: 16,
-                highlightColor: Colors.pink,
-                onHighlightChanged: (value) {},
+              Text(
+                '＊自動的に相手を選んで勉強するモードです',
+                style: TextStyle(
+                  color: ABColor,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
-          )),
+          )
+      ),
     );
   }
 }
